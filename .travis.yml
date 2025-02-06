@@ -1,0 +1,9 @@
+sudo: required
+services:
+  -docker 
+
+before_install:
+  -docker build -t AnapiKutti/TestMe -f dockerfile.dev .
+
+script:
+  -docker run -e CI=true AnapiKutti/TestMe npm run test  
