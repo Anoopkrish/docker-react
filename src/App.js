@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Neeyada Dapparu but going through feature branch macha and new docker machi
+          Neeyada Dapparu but going through feature branch macha and new docker machi..Enthonedei
         </p>
         <a
           className="App-link"
