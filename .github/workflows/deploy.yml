@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: docker login -u reg-359536 -p AKCp8hzNa4EPRHqa4iu1QCWiLijwLhXvAJoyVetjUSJqpiJ3KzJQ3ej9dLQEhDaN5NH8eQ6B
+      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - run: docker build -t AnapiKutti/TestMe -f Dockerfile.dev .
       - run: docker run -e CI=true AnapiKutti/TestMe npm test
 
@@ -19,8 +19,8 @@ jobs:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
         with:
-          aws_access_key: AKIA47CRYFQGIEWYDZMN
-          aws_secret_key: 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
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
           application_name: frontend
           environment_name: Frontend-env
           existing_bucket_name: elasticbeanstalk-eu-north-1-891377167372
